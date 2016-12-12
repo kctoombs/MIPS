@@ -1,0 +1,275 @@
+Lab 2 Problems: Chapter 3 in Write Great Code by Randall Hyde
+
+Remember to solve these individually, working with your partner only when
+you get stuck, and seeking help from the TA only when you are both stuck.
+You may NOT use any calculators.  Make sure you are on your own computer,
+editing your own file.
+
+This is your assignment for the week, not just for the day, so it is
+expected that you will not finish during this lab time.
+
+For each problem, make sure you write your answer on the line immediately
+after the prompt, and only on that line.  For example:
+
+0.) What is 2 + 2, in decimal?
+0.answer)
+4
+
+
+---Single Bit Adders---
+
+The following questions concern the results of an adder that operates
+over single bits, including a carry bit.  Give the results for the addition,
+along with the carry bit, separated by a semicolon.  For example:
+
+1.) What is 1 + 1 without a carry set?
+1.answer)
+0;1
+
+2.) What is 0 + 0 without a carry set?
+2.answer)
+0;0
+
+3.) What is 1 + 1 with a carry set?
+3.answer)
+1;1
+
+4.) What is 1 + 0 with a carry set?
+4.answer)
+0;1
+
+5.) What is 0 + 0 with a carry set?
+5.answer)
+1;0
+
+
+---Binary Addition Over Multiple Bits---
+
+Tell the results of the following binary addition operations on twos complement
+integers. Truncate the answer to 8 bits. For each one, make sure you identify
+whether they created an overflow, a carry, or both.  For an overflow, put a
+capital V.  For a carry, put a capital C.  If both, put VC.  Place this
+information after the 8-bit answer, separated by a space.  For example:
+
+6.) What is
+    00101001
+   +11101001?
+6.answer)
+00010010 C
+
+7.) What is
+    10010001
+   +01100110?
+7.answer)
+11110111
+
+8.) What is
+    11011011
+   +01100011?
+8.answer)
+00111110 C
+
+9.) What is
+    00111101
+   +10110001?
+9.answer)
+11101110
+
+10.) What is
+     10111101
+    +10000001?
+10.answer)
+00111110 VC
+
+
+---Negating Binary Numbers in Twos Complement---
+
+For each of the following binary numbers, specify the negated value in binary.
+For this to work out, we need to negate using twos complement - flip all the
+bits and add 1.  For example:
+
+00110011 original
+11001100 all bits flipped
+11001101 add 1
+
+For these problems, just report the final negated value, not the intermediate
+step.
+
+11.) What is the negated version of:
+     01101101?
+11.answer)
+10010011
+
+12.) What is the negated version of:
+     11001001?
+12.answer)
+00110111
+
+13.) What is the negated version of:
+     11100100?
+13.answer)
+00011100
+
+
+---Subtracting Binary Numbers in Twos Complement---
+
+The following problems ask you to subtract one binary number from another.
+While this can be done directly, it is typically easier to negate the second number
+(using the technique you used for problems 11 - 13), and then add the two together.
+Truncate your answer to 8 bits.  There will be several steps, but ONLY show the
+answer, in the same way as you reported problems 6 - 10.  Note that this means that
+you will ALSO NEED TO SPECIFIY the overflow and carry bits, where appropriate.
+
+14.) What is
+     11001101
+    -01100100?
+14.answer)
+01101001 VC
+
+15.) What is
+     01101001
+    -10110101?
+15.answer)
+10110100 V
+
+16.) What is
+     10010110
+    -11101010?
+16.answer)
+10101100
+
+17.) What is
+     10110010
+    -00000001?
+17.answer)
+10110001 C
+
+
+---Basic Bitwise Operations---
+
+Recall that bitwise AND is specified with `&`, bitwise OR with `|`, and bitwise
+XOR with `^`.
+
+18.) What is
+     01101101
+    &10101011?
+18.answer)
+00101001
+
+
+19.) What is
+     11001001
+    &11110001?
+19.answer)
+11000001
+
+20.) What is
+     10011011
+    &10011011?
+20.answer)
+10011011
+
+21.) What is
+     01101110
+    &10010001?
+21.answer)
+00000000
+
+22.) What is
+     10011011
+    |11100101?
+22.answer)
+11111111
+
+23.) What is
+     01101101
+    |01101101?
+23.answer)
+01101101
+
+24.) What is
+     11010001
+    |11110001?
+24.answer)
+11110001
+
+25.) What is
+     10111101
+    |00000001?
+25.answer)
+10111101
+
+26.) What is
+     01101101
+    ^10010010?
+26.answer)
+11111111
+
+27.) What is
+     01101010
+    ^11101011?
+27.answer)
+10000001
+
+28.) What is
+     11001010
+    ^11100101?
+28.answer)
+00101111
+
+29.) What is
+     11110101
+    ^00001011?
+29.answer)
+11111110
+
+
+---Advanced Bitwise Operations---
+
+Look at `http://www.cprogramming.com/tutorial/bitwise_operators.html`
+and read how bitwise operations are useful.  Generally, you are not going to AND
+two numbers together that you do or do not know the values of.  Instead,
+you will usually take a number you DO NOT know and perform a bitwise
+operation on it with a number that you DO know.  The known number above is
+called a "mask", because it allows you to selectively observe the values of
+just the bits you are interested in.  This can be done to inspect, set, and
+flip specific bits in the unknown number. In the following problems, the unknown
+number has all X's, and the known number has all 1's and 0's.  Write the
+answer.  Each bit of the answer is either 1, 0, or X, where X
+is the same bit value as the corresponding bit in the unknown number.
+
+30.) What is
+     XXXXXXXX
+    |11001010?
+30.answer)
+11XX1X1X
+
+31.) What is
+     XXXXXXXX
+    &10110110?
+31.answer)
+XXXXXXXX
+
+For the following three questions, remember that bit numbers start
+numbering from 0, and that hexadecimal numbers are always unsigned.
+In addition to showing the mask you would use, also show the operation
+you would use, like so: &0x0020.  (i.e., AND the original number with
+the hexadecimal mask 0x0020.)
+
+32.) Specify the mask you would need to inspect bit 5 of the unknown number.
+     Express it as a 4-digit hexadecimal number.
+32.answer)
+&0X0020
+
+33.) Specify the mask you would need to set bit 5 of the unknown number to zero.
+     That is, the result of this operation results in a new number, which the unknown
+     number should be subsequently set to.  Express it as a 4-digit hexadecimal number.
+33.answer)
+&0XFFDF
+
+34.) Specify the mask you would need to set bit 5 of the unknown number to one.
+     That is, the result of this operation results in a new number, which the unknown
+     number should be subsequently set to.  Express it as a 4-digit hexadecimal number.
+34.answer)
+|0X0020
+

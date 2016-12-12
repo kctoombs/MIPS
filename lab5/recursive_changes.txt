@@ -1,0 +1,8 @@
+Changes made to recursive_max.asm:
+1. On lines 169 and 170, I allocated space on the stack and stored the value held by $s3 onto the stack since I eventually used $s3 in the function to temporarily store the maximum element.
+
+2. On line 174, I moved the value of $a2 into $s3 in order to temporarily store the value of the maximum element in $s3.
+
+3. On line 205, after the maximum element had already been determined, I moved the value of $s3 back into $a2 in order to correctly set up the parameter $a2 for the recursive call.
+
+4. On line 208, I loaded the original value of $s3 back into $s3 (the value that was stored onto the stack in the beginning of the function) and deallocated space on the stack.

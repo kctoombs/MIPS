@@ -1,0 +1,146 @@
+Lab 7 Problems: Digital Design II
+
+Remember to solve these individually, working with your partner only when
+you get stuck, and seeking help from the TA only when you are both stuck.
+You may NOT use any calculators.  Make sure you are on your own computer,
+editing your own file.
+
+This is your assignment for the week, not just for the day, so it is
+expected that you will not finish during this lab time.
+
+For each problem, make sure you write your answer on the line immediately
+after the prompt, and only on that line.  For example:
+
+0.) What is 2 + 2, in decimal?
+0.answer)
+4
+
+---PART 1: MORE K-MAPS---
+
+Each of the problems has the same process.
+1: Identify the inputs and outputs
+ - this will be given for you to make sure we all name them the same
+2: Write the truth table
+ - we will give you the table to fill in.  Make sure you do not
+   reorder the rows.
+3: Unoptimized Sum of products.  Make sure you format the answers correctly.
+  - AND is not shown (place next to each other), OR is '+', and NOT is '!'
+  - whitespace does not matter.
+  - place your entire answer on one line
+  - The order in which products occur doesn't matter
+
+ex. B A | C
+    _______
+    0 0 | 0
+    0 1 | 1
+    1 0 | 1
+    1 1 | 0
+
+C = !BA + B!A
+
+4: Draw K-map yourself on a piece of paper
+5: Write out the minimized sum of products, using the K-map as a guide
+
+
+
+1.) Given this truth table, do steps 2-4.
+  A B C D | O
+  ___________
+  0 0 0 0 | 0
+  0 0 0 1 | 1
+  0 0 1 0 | 0
+  0 0 1 1 | 0
+  0 1 0 0 | 1
+  0 1 0 1 | 0
+  0 1 1 0 | 1
+  0 1 1 1 | 0
+  1 0 0 0 | 0
+  1 0 0 1 | 1
+  1 0 1 0 | 0
+  1 0 1 1 | 0
+  1 1 0 0 | 0
+  1 1 0 1 | 0
+  1 1 1 0 | 0
+  1 1 1 1 | 0
+
+Unoptimized Sum of Products equation
+1a) O = !A!B!CD + !AB!C!D + !ABC!D +A!B!CD
+
+Draw the K-map and simplify
+Optimized Sum of Products equation
+1b) O = !AB!D + !CD!B
+
+2.) Given this truth table, do steps 2-4.
+    Note the use of don't-cares, represented by `X`.
+  A B C D | O
+  ___________
+  0 0 0 0 | 1
+  0 0 0 1 | X
+  0 0 1 0 | 0
+  0 0 1 1 | 1
+  0 1 0 0 | X
+  0 1 0 1 | 0
+  0 1 1 0 | X
+  0 1 1 1 | 0
+  1 0 0 0 | X
+  1 0 0 1 | 0
+  1 0 1 0 | 1
+  1 0 1 1 | 0
+  1 1 0 0 | 1
+  1 1 0 1 | 0
+  1 1 1 0 | X
+  1 1 1 1 | 0
+
+Unoptimized Sum of Products equation
+2a) O =!A!B!C!D + !A!BCD + A!BC!D + AB!C!D
+
+Draw the K-map and simplify
+Optimized Sum of Products equation
+2b) O = !C!D + !A!BD + A!B!D
+
+
+---PART 2: MULTIPLEXERS---
+
+For your answers for this part, put your answer on the SAME LINE as the
+prompt.  For example:
+
+What is 2 + 8?
+ex) 10
+
+
+3) The 8-input MUX can be constructed entirely with 2-input MUXes.
+I will start you out - put inputs A and B into one MUX and inputs C and D
+into another MUX. Continue on with E F and G H like this.
+This is the first stage of the solution.
+Then decide how to reconcile the two results from those MUXes.
+Look hard at the logic for the 2-input MUX vs the 8-input MUX.
+
+How many 2-input MUXes are needed to create an 8-input MUX?
+3a) 4
+
+How many select lines are needed?
+3b) 3
+
+Draw the circuit and include it in your submission as "lab7mux.jpg".
+Alternatively, you can draw the circuit on paper and submit it to the
+CS64 homework box, in Harold Frank Hall room 2108.  If you submit
+to the homework box, be sure to list your name, your partner's name
+(if applicable), and write "multiplexer" on it.
+
+4.) Now think of a MUX that has `2^n` inputs.  All of your answers will
+have the variable `n` in them.  Please denote exponentials as base^exp,
+such as n^2.
+
+How many select bits are there?
+4a) (2^n) - 1
+
+If it is implemented with 2-input MUXes, how many MUXes are there in 
+the first stage?
+4b) (2^n)/2
+
+How many 2-input MUXes are there in the second stage?
+4c) (2^n)/4
+
+How many stages of 2-input MUXes are there?
+4d) n
+
